@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tebak Angka</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    input, button { padding: 10px; margin: 5px; }
+  </style>
+</head>
+<body>
+  <h1>🎮 Permainan Tebak Angka 🎮</h1>
+  <p>Saya sudah memilih angka antara 1 - 100. Coba tebak!</p>
+  <input type="number" id="tebakan" placeholder="Masukkan angka">
+  <button onclick="cekTebakan()">Tebak</button>
+  <p id="hasil"></p>
+
+  <script>
+    let angkaRahasia = Math.floor(Math.random() * 100) + 1;
+    let percobaan = 0;
+
+    function cekTebakan() {
+      let tebakan = document.getElementById("tebakan").value;
+      percobaan++;
+      if (tebakan > angkaRahasia) {
+        document.getElementById("hasil").innerText = "Terlalu besar! Coba lagi.";
+      } else if (tebakan < angkaRahasia) {
+        document.getElementById("hasil").innerText = "Terlalu kecil! Coba lagi.";
+      } else {
+        document.getElementById("hasil").innerText = 
+          `Selamat! Kamu benar dalam ${percobaan} percobaan 🎉`;
+      }
+    }
+  </script>
+</body>
+</html>
